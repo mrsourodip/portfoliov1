@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
@@ -8,6 +8,10 @@ const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { isDark } = useTheme();
   const post = slug ? blogPosts[slug] : null;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!post) {
     return (
