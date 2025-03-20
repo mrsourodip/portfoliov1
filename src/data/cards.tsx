@@ -17,6 +17,7 @@ export interface CardData {
   hasEmail?: boolean;
   hasReadMore?: boolean;
   hasThemeToggle?: boolean;
+  hasDownload?: boolean;
   date?: string;
   link?: string;
   order?: number;
@@ -25,6 +26,7 @@ export interface CardData {
   avatar?: React.ReactNode;
   spotifyTrackId?: string;
   customContent?: React.ReactNode;
+  downloadUrl?: string;
 }
 
 export const initialCardsData: CardData[] = [
@@ -34,7 +36,7 @@ export const initialCardsData: CardData[] = [
     title: "I'm Sourodip",
     description: "A developer from Kolkata, interested in full stack development in MERN Stack along with integrating agentic AI. I love Brooklyn 99 and The Office, and when I am not coding, you will find me playing Fifa with Bingo Chilli Sprinkles and a coke.",
     bgColor: '#fff',
-    size: 'wide',
+    size: 'featured',
     isIntroCard: true,
     avatar: <InteractiveAvatar />
   },
@@ -61,7 +63,7 @@ export const initialCardsData: CardData[] = [
     description: 'A beautiful weather application with real-time updates.',
     bgColor: '#E0F8F0',
     size: 'small',
-    githubUrl: 'https://github.com/yourusername/weather-app'
+    githubUrl: 'https://github.com/mrsourodip/weather-app'
   },
   {
     id: '5',
@@ -72,6 +74,16 @@ export const initialCardsData: CardData[] = [
     size: 'small',
     hasReadMore: true,
     link: 'mailto:sourodip.works@gmail.com'
+  },
+  {
+    id: '11',
+    section: 'About',
+    title: 'Download Resume',
+    description: 'Get a copy of my detailed resume in PDF format.',
+    bgColor: '#E8F0FF',
+    size: 'small',
+    hasDownload: true,
+    downloadUrl: 'https://portfoliov1-mu-two.vercel.app/Sourodip_Kundu_FullStack.pdf'
   },
   {
     id: '6',
@@ -101,7 +113,7 @@ export const initialCardsData: CardData[] = [
     description: 'A full-featured online shopping platform with modern UI/UX.',
     bgColor: '#FFE8C8',
     size: 'wide',
-    githubUrl: 'https://github.com/yourusername/ecommerce'
+    githubUrl: 'https://github.com/mrsourodip/ecommerce'
   },
   {
     id: '9',
@@ -121,6 +133,6 @@ export const initialCardsData: CardData[] = [
     description: 'An intelligent chatbot powered by machine learning.',
     bgColor: '#FFE0E8',
     size: 'small',
-    githubUrl: 'https://github.com/yourusername/ai-chat'
+    githubUrl: 'https://github.com/mrsourodip/ai-chat'
   }
 ]; 

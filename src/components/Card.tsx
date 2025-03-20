@@ -20,6 +20,7 @@ interface CardProps {
   hasImage?: boolean;
   hasReadMore?: boolean;
   hasThemeToggle?: boolean;
+  hasDownload?: boolean;
   isDarkMode?: boolean;
   date?: string;
   link?: string;
@@ -29,6 +30,7 @@ interface CardProps {
   isIntroCard?: boolean;
   spotifyTrackId?: string;
   customContent?: React.ReactNode;
+  downloadUrl?: string;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -45,6 +47,7 @@ const Card: React.FC<CardProps> = ({
   hasImage,
   hasReadMore,
   hasThemeToggle,
+  hasDownload,
   isDarkMode,
   date,
   link,
@@ -52,7 +55,8 @@ const Card: React.FC<CardProps> = ({
   avatar,
   isIntroCard,
   spotifyTrackId,
-  customContent
+  customContent,
+  downloadUrl
 }) => {
   const { toggleTheme } = useTheme();
   const navigate = useNavigate();
@@ -85,6 +89,14 @@ const Card: React.FC<CardProps> = ({
     e.stopPropagation();
     if (githubUrl) {
       window.open(githubUrl, '_blank');
+    }
+  };
+
+  const handleDownload = (e: React.MouseEvent) => {
+    if (!isActive) return;
+    e.stopPropagation();
+    if (downloadUrl) {
+      window.open(downloadUrl, '_blank');
     }
   };
 
@@ -155,6 +167,20 @@ const Card: React.FC<CardProps> = ({
               opacity: isActive ? 1 : 0.5
             }}
           ></iframe>
+        </div>
+      )}
+
+      {hasDownload && (
+        <div className="download-button-container">
+          <button
+            className="download-button"
+            onClick={handleDownload}
+            disabled={!isActive}
+            style={{ opacity: isActive ? 1 : 0.5 }}
+          >
+            <i className="fas fa-download"></i>
+            Download Resume
+          </button>
         </div>
       )}
 
