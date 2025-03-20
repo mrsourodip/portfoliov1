@@ -7,4 +7,5 @@ export default defineConfig({
   optimizeDeps: {
     include: ['@dnd-kit/core', '@dnd-kit/sortable', '@dnd-kit/utilities'],
   },
+  base: '/',
 });
